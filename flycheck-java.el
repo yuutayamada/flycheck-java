@@ -3,7 +3,7 @@
 ;; Copyright (C) 2015 by Yuta Yamada
 
 ;; Author: Yuta Yamada <cokesboy"at"gmail.com>
-;; URL: https://github.com/yuutayamada/
+;; URL: https://github.com/yuutayamada/flycheck-java
 ;; Version: 0.0.1
 ;; Package-Requires: ((package "version-number"))
 ;; Keywords: keyword
@@ -23,6 +23,7 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ;;; Commentary:
 ;; Note this project is still work in progress.
+;; Pull request is welcome!
 ;; Usage
 ;;  (add-to-list 'java-mode-hook '(lambda () (require 'flycheck-java))
 ;;; Code:
@@ -38,6 +39,7 @@
             (eval (flycheck-java-compute-lint-options))
             (eval (flycheck-java-find "R.java"
                     (lambda (file) (not (string-match "/android/support/" file)))))
+            ;; How to specify current directory in Java?
             (eval (cl-loop for file in (directory-files default-directory)
                            if (and (file-exists-p file)
                                    (string-match "\\.java$" file)
