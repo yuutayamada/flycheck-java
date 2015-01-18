@@ -38,6 +38,10 @@
             (eval (flycheck-java-compute-lint-options))
             (eval (flycheck-java-find "R.java"
                     (lambda (file) (not (string-match "/android/support/" file)))))
+            (eval (cl-loop for file in (directory-files default-directory)
+                           if (and (file-exists-p file)
+                                   (string-match "\\.java$" file))
+                           collect file))
             source)
   :error-patterns
   ((warning line-start (file-name) ":" line ": warning:"
