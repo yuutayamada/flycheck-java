@@ -40,7 +40,8 @@
                     (lambda (file) (not (string-match "/android/support/" file)))))
             (eval (cl-loop for file in (directory-files default-directory)
                            if (and (file-exists-p file)
-                                   (string-match "\\.java$" file))
+                                   (string-match "\\.java$" file)
+                                   (not (flycheck-same-files-p file buffer-file-name)))
                            collect file))
             source)
   :error-patterns
