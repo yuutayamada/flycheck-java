@@ -170,6 +170,11 @@ Please please please! give me pull request!"
 
 (add-to-list 'flycheck-checkers 'java)
 
+(defun flycheck-java-print-options ()
+  "Print lint options."
+  (interactive)
+  (print (flycheck-java-compute-lint-options)))
+
 (provide 'flycheck-java)
 
 ;; Local Variables:
