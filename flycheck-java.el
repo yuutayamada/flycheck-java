@@ -78,10 +78,7 @@
                                (flycheck-java-find "*\\.jar")))
          (classpath (apply `(flycheck-java-formatter ,root ,@android-jars)))
          (sourcepath (flycheck-java-formatter
-                      default-directory
-                      (concat root "src")
-                      ;; (concat root "gen")
-                      )))
+                      default-directory (concat root "src"))))
     (list (cons 'classpath classpath)
           (cons 'sourcepath sourcepath))))
 
