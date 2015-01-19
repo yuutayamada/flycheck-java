@@ -115,7 +115,7 @@ Please please please! give me pull request!"
 
 (defun flycheck-java-find (filename &optional predicate)
   ""
-  (cl-loop with d = (locate-dominating-file default-directory "src")
+  (cl-loop with d = (flycheck-java-android-root)
            with files = (shell-command-to-string
                          (format "find %s -name \"%s\"" d filename))
            for file in (split-string files "\n")
